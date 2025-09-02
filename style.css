@@ -1,6 +1,6 @@
 :root {
   --bg-color: #ffffff;
-  --text-color: #000000;
+  --text-color: #282828;
   --link-color: #0000ee;
   
   font-family: "Roboto Mono", monospace;
@@ -12,7 +12,7 @@
 }
 
 [data-theme="dark"] {
-  --bg-color: #121212;
+  --bg-color: #282828;
   --text-color: #ffffff;
   --link-color: #88aaff;
 }
@@ -37,9 +37,7 @@ a {
   right: 1rem;
   cursor: pointer;
   user-select: none;
-  &:hover {
-    text-decoration: underline;
-  }
+  text-decoration: underline;
 
 }
 
