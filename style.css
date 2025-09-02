@@ -43,6 +43,6 @@ a {
 
 @media (min-width: 768px) {
   :root {
-    padding: 0 10rem;
+    padding: 0 35%;
   }
 }
