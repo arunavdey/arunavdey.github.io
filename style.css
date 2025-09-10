@@ -1,48 +1,29 @@
 :root {
-  --bg-color: #ffffff;
-  --text-color: #282828;
-  --link-color: #0000ee;
-  
-  font-family: "Roboto Mono", monospace;
-  padding: 0 1rem;
-  transition: padding 0.3s ease, background-color 0.3s ease, color 0.3s ease;
-  
-  background-color: var(--bg-color);
-  color: var(--text-color);
+    padding: 0 2rem;
 }
 
-[data-theme="dark"] {
-  --bg-color: #282828;
-  --text-color: #ffffff;
-  --link-color: #88aaff;
+* {
+    font-family: "Lucida Console", "Courier New", monospace;
+    transition: padding 0.3s ease;
 }
 
 body {
-  margin: 0;
+    margin: 0;
 }
 
-a {
-  color: var(--link-color);
-  transition: color 0.3s ease;
+footer {
+    position: fixed;
+    bottom: 0;
 }
 
-.copyright {
-  position: fixed;
-  bottom: 0;
-}
-
-.theme-toggle {
-  position: fixed;
-  bottom: 1rem;
-  right: 1rem;
-  cursor: pointer;
-  user-select: none;
-  text-decoration: underline;
-
+@media (min-width: 576px) {
+    :root {
+        padding: 0 20%;
+    }
 }
 
 @media (min-width: 768px) {
-  :root {
-    padding: 0 35%;
-  }
+    :root {
+        padding: 0 35%;
+    }
 }
