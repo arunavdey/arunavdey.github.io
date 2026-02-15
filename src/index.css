@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+@theme {
+  --font-mono: "Lucida Console", "Courier New", monospace;
+}
+
+html,
+body {
+  overflow-x: hidden;
+}
