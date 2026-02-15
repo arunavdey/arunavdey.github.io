@@ -1,3 +1,6 @@
+# Deploy to GitHub Pages (builds dist/ and deploys it).
+# Required: Repo Settings → Pages → Build and deployment → Source = "GitHub Actions".
+# If the site loads /src/main.tsx or stays blank, the source is likely "Deploy from a branch"; switch it to GitHub Actions.
 name: Deploy to GitHub Pages
 
 on:
