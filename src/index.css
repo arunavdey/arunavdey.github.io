@@ -1,10 +1,86 @@
 @import "tailwindcss";
+@import "@fontsource-variable/jetbrains-mono";
+@plugin "@tailwindcss/typography";
 
-@theme {
-  --font-mono: "Lucida Console", "Courier New", monospace;
+:root {
+  --paper: #faf6ef;
+  --paper-subtle: #f1ebde;
+  --ink: #2e2b26;
+  --ink-muted: #8c8474;
+  --line: #e2dacb;
+  --accent: #4f7566;
+  --accent-strong: #3a5a4d;
+  --code-string: #a97a3f;
 }
 
-html,
-body {
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #201e1a;
+    --paper-subtle: #2a2721;
+    --ink: #e8e1d3;
+    --ink-muted: #99917f;
+    --line: #3a362d;
+    --accent: #8bb7a3;
+    --accent-strong: #a9cdb9;
+    --code-string: #d9a467;
+  }
+}
+
+@theme {
+  --font-mono: "JetBrains Mono Variable", "Lucida Console", "Courier New", monospace;
+  --color-paper: var(--paper);
+  --color-paper-subtle: var(--paper-subtle);
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
+}
+
+html {
   overflow-x: hidden;
+  background-color: var(--paper);
+  color: var(--ink);
+  color-scheme: light dark;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+::selection {
+  background-color: var(--accent);
+  color: var(--paper);
+}
+
+/* Syntax highlighting for fenced code blocks (rehype-highlight). */
+/* Background, border, and padding live on CodeBlock's wrapper/pre instead. */
+.hljs {
+  color: var(--ink);
+}
+
+.hljs-comment,
+.hljs-quote {
+  color: var(--ink-muted);
+  font-style: italic;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-literal,
+.hljs-type {
+  color: var(--accent);
+}
+
+.hljs-string,
+.hljs-attr,
+.hljs-regexp {
+  color: var(--code-string);
+}
+
+.hljs-title,
+.hljs-title.function_,
+.hljs-title.class_,
+.hljs-number {
+  color: var(--ink);
+  font-weight: 600;
 }
