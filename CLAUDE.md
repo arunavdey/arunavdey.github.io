@@ -32,12 +32,6 @@ Routing is `react-router-dom` (`BrowserRouter`), but GitHub Pages has no server-
 
 ### Design tokens
 
-`src/index.css` defines the palette as CSS custom properties (`--paper`, `--ink`, `--accent`, etc.) with a `prefers-color-scheme: dark` override block, then maps them into Tailwind's `@theme` so utilities like `bg-paper` / `text-ink` / `text-accent` exist. The mono typeface is self-hosted (`@fontsource-variable/jetbrains-mono`) — no external font requests.
+`src/index.css` defines the palette as CSS custom properties (`--paper`, `--ink`, `--accent`, etc.), mapped into Tailwind's `@theme` so utilities like `bg-paper` / `text-ink` / `text-accent` exist. It's a single fixed "warm cup of coffee" theme — cream background, roasted-brown text, caramel accent — deliberately not tied to `prefers-color-scheme`; there's no dark variant, by design. (An earlier pass tried an inky near-black Flexoki-dark theme; it read as too dark and was replaced with this lighter, cream-based one.) The mono typeface is self-hosted (`@fontsource-variable/jetbrains-mono`) — no external font requests.
 
-### Sticky header (`src/components/Header.tsx`)
-
-The header shrinks and its layout flips (title+link stacked → title+link side by side) once the page scrolls past a threshold. Two non-obvious constraints keep this working — easy to silently break when touching this component or its ancestors in `App.tsx`:
-
-- **No `overflow-x: hidden` on any ancestor of the header.** Per the CSS overflow spec, setting only one axis to non-`visible` forces the other axis to compute to `auto`, silently turning that ancestor into its own scroll container — which breaks `position: sticky` for descendants (their containing scrollport becomes that ancestor instead of the viewport). Horizontal clipping lives only on `html` in `src/index.css`, which is safe because `html` is already the document's actual scroll root, not a nested one.
-- **The sticky containing block must span the full page height.** `position: sticky` can only stay pinned while its containing block still overlaps the viewport. The `relative` anchor for the header's absolutely-positioned scroll sentinel lives on the page-level wrapper in `App.tsx` (which spans the whole page), not on a small div wrapping just the header.
-- Collapse/expand state is driven by an `IntersectionObserver` on that sentinel (fixed position, zero layout footprint) rather than a raw `scroll` listener comparing `window.scrollY` — a listener that also changes the header's own height on every tick can retrigger itself and flicker.
+The header (`src/components/Header.tsx`) is a plain static block — title + Mastodon link. A scroll-collapsing/sticky version was tried and deliberately reverted (choppy, fought CSS in ways not worth the payoff); don't reintroduce that without being asked.

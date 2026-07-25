@@ -2,28 +2,21 @@
 @import "@fontsource-variable/jetbrains-mono";
 @plugin "@tailwindcss/typography";
 
+/*
+ * One fixed theme, deliberately not tied to prefers-color-scheme — meant to
+ * feel like a warm cup of coffee: cream (milk) background, roasted-brown
+ * (coffee) text, caramel accent. Built from coffee-palette hex research
+ * plus Flexoki's (https://stephango.com/flexoki) light-mode orange, which
+ * is already calibrated for legibility against a cream backdrop.
+ */
 :root {
-  --paper: #faf6ef;
-  --paper-subtle: #f1ebde;
-  --ink: #2e2b26;
-  --ink-muted: #8c8474;
-  --line: #e2dacb;
-  --accent: #4f7566;
-  --accent-strong: #3a5a4d;
-  --code-string: #a97a3f;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --paper: #201e1a;
-    --paper-subtle: #2a2721;
-    --ink: #e8e1d3;
-    --ink-muted: #99917f;
-    --line: #3a362d;
-    --accent: #8bb7a3;
-    --accent-strong: #a9cdb9;
-    --code-string: #d9a467;
-  }
+  --paper: #f3e9da;
+  --paper-subtle: #e9dcc5;
+  --ink: #3b2a20;
+  --ink-muted: #8a7360;
+  --line: #dccbae;
+  --accent: #b5651d;
+  --code-string: #8a6d1a;
 }
 
 @theme {
@@ -34,17 +27,13 @@
   --color-ink-muted: var(--ink-muted);
   --color-line: var(--line);
   --color-accent: var(--accent);
-  --color-accent-strong: var(--accent-strong);
 }
 
 html {
   overflow-x: hidden;
   background-color: var(--paper);
   color: var(--ink);
-  color-scheme: light dark;
-  transition:
-    background-color 0.2s ease,
-    color 0.2s ease;
+  color-scheme: light;
 }
 
 ::selection {

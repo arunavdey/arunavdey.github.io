@@ -28,3 +28,5 @@ def solve(nums: List[int], target: int):
 ```
 
 (sorry, I'm a python normie)
+
+I'm not quite sure why I'm even doing LeetCode right now. Writing code has become incredibly cheap, and so has finding solutions to a lot of problems. A problem new to me may not be new to the world, and given the fact that AI trains on worldly data, it's natural to feel like AI is great at solving "unseen" problems. It was just new to me, not to the AI. I'm still not sure how well AI performs when solving problems that no one has even considered to be a problem.
