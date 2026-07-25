@@ -1,7 +1,7 @@
 import type { Section } from "./types"
 
 export const SITE_NAME = "Arunav Dey"
-export const COPYRIGHT_YEAR = 2026
+export const COPYRIGHT_YEAR = new Date().getFullYear()
 
 export const MASTODON_LABEL = "Mastodon"
 export const MASTODON_URL = "https://mastodon.social/@arunavdey"
