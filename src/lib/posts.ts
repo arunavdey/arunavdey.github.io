@@ -7,7 +7,10 @@ const rawPosts = import.meta.glob(["../posts/*.md", "!../posts/_*.md"], {
 }) as Record<string, string>
 
 function parsePost(path: string, raw: string): BlogPost {
-  const slug = path.replace(/^.*\//, "").replace(/\.md$/, "")
+  const slug = path
+    .replace(/^.*\//, "")
+    .replace(/\.md$/, "")
+    .replace(/^\d+-/, "")
   const match = raw.match(/^---\n([\s\S]*?)\n---\n?([\s\S]*)$/)
 
   if (!match) {

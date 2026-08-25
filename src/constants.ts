@@ -6,6 +6,9 @@ export const COPYRIGHT_YEAR = new Date().getFullYear()
 export const MASTODON_LABEL = "Mastodon"
 export const MASTODON_URL = "https://mastodon.social/@arunavdey"
 
+export const GITHUB_LABEL = "GitHub"
+export const GITHUB_URL = "https://github.com/arunavdey"
+
 export const SECTION_ID = {
   ABOUT: "about",
   WORKSHOP: "workshop",

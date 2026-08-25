@@ -10,8 +10,8 @@ function App() {
   const isHome = pathname === "/"
 
   useEffect(() => {
-    document.title = SITE_NAME
-  }, [])
+    if (isHome) document.title = SITE_NAME
+  }, [isHome])
 
   return (
     <div

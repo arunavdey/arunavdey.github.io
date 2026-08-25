@@ -1,5 +1,11 @@
 import { Link } from "react-router-dom"
-import { SITE_NAME, MASTODON_LABEL, MASTODON_URL } from "../constants"
+import {
+  SITE_NAME,
+  MASTODON_LABEL,
+  MASTODON_URL,
+  GITHUB_LABEL,
+  GITHUB_URL,
+} from "../constants"
 
 function Header() {
   return (
@@ -9,13 +15,23 @@ function Header() {
           {SITE_NAME}
         </h1>
       </Link>
-      <a
-        rel="me"
-        href={MASTODON_URL}
-        className="text-accent underline decoration-accent/40 underline-offset-2 hover:decoration-accent"
-      >
-        {MASTODON_LABEL}
-      </a>
+      <div className="flex items-center gap-4">
+        <a
+          rel="me"
+          href={MASTODON_URL}
+          className="text-accent underline decoration-accent/40 underline-offset-2 hover:decoration-accent"
+        >
+          {MASTODON_LABEL}
+        </a>
+        <a
+          href={GITHUB_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-accent underline decoration-accent/40 underline-offset-2 hover:decoration-accent"
+        >
+          {GITHUB_LABEL}
+        </a>
+      </div>
     </header>
   )
 }

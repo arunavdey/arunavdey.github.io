@@ -59,7 +59,14 @@ function Post() {
         <ReactMarkdown
           remarkPlugins={[remarkGfm]}
           rehypePlugins={[rehypeHighlight]}
-          components={{ pre: CodeBlock }}
+          components={{
+            pre: CodeBlock,
+            a: ({ href, children, ...props }) => (
+              <a href={href} target="_blank" rel="noopener noreferrer" {...props}>
+                {children}
+              </a>
+            ),
+          }}
         >
           {post.content}
         </ReactMarkdown>
