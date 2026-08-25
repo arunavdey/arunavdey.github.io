@@ -52,6 +52,25 @@ html[data-theme="cyberpunk"] {
   color-scheme: dark;
 }
 
+/* Cross-fade the theme switch instead of snapping — every themed color is
+   one of the CSS custom properties above, so transitioning the standard
+   properties that consume them (background-color, color, etc.) is enough
+   to animate the whole page at once when data-theme flips. */
+@media (prefers-reduced-motion: no-preference) {
+  *,
+  *::before,
+  *::after {
+    transition:
+      background-color 250ms ease,
+      color 250ms ease,
+      border-color 250ms ease,
+      text-decoration-color 250ms ease,
+      fill 250ms ease,
+      stroke 250ms ease,
+      box-shadow 250ms ease;
+  }
+}
+
 /* Sharp-cut, heavy, italic-by-default display face for every heading in
    this theme — deliberately eccentric rather than a neutral sans swap. */
 [data-theme="cyberpunk"] :is(h1, h2, h3, h4, h5, h6) {
