@@ -17,6 +17,64 @@
   --line: #dccbae;
   --accent: #b5651d;
   --code-string: #8a6d1a;
+  /* No secondary/tertiary accent in the coffee theme — alias to accent so
+     any component using them stays visually unchanged in light mode. */
+  --accent-cyan: var(--accent);
+  --accent-yellow: var(--accent);
+}
+
+/*
+ * Opt-in dark theme, toggled by hand via the header switch (see
+ * src/lib/theme.ts) and persisted to localStorage — not tied to
+ * prefers-color-scheme. Void-black background, cool off-white text, and
+ * the genre's three-note neon signature: hot magenta as the primary
+ * accent, electric cyan as its interactive-state foil, hard yellow used
+ * sparingly as a hazard/system-label accent (see Cyberpunk 2077/Edgerunners
+ * key art — pink signage + cyan highlights + yellow warning accents).
+ */
+[data-theme="cyberpunk"] {
+  --paper: #0b0e14;
+  --paper-subtle: #131a29;
+  --ink: #e8f1ff;
+  --ink-muted: #5c7099;
+  --line: #1f2b40;
+  --accent: #ff2f92;
+  --code-string: #29f0d1;
+  --accent-cyan: #29f0d1;
+  --accent-yellow: #fcee0a;
+}
+
+html[data-theme="cyberpunk"] {
+  color-scheme: dark;
+}
+
+[data-theme="cyberpunk"] .site-title {
+  text-shadow:
+    0 0 14px color-mix(in srgb, var(--accent) 70%, transparent),
+    0 0 32px color-mix(in srgb, var(--accent) 35%, transparent);
+}
+
+/* Interactive states glitch-shift from magenta to cyan, same as the
+   game's netrunner UI — this is what makes cyan read as a real second
+   accent instead of a color that only shows up in code blocks. */
+[data-theme="cyberpunk"] a:hover {
+  color: var(--accent-cyan);
+  text-decoration-color: var(--accent-cyan);
+  text-shadow: 0 0 8px color-mix(in srgb, var(--accent-cyan) 65%, transparent);
+}
+
+/* Yellow stays a hard, sparing accent: system-label chrome, not body color. */
+[data-theme="cyberpunk"] .lang-label {
+  color: var(--accent-yellow);
+}
+
+[data-theme="cyberpunk"] .prose {
+  --tw-prose-quote-borders: var(--accent-yellow);
+  --tw-prose-headings: var(--accent-yellow);
+}
+
+[data-theme="cyberpunk"] .section-title {
+  color: var(--accent-yellow);
 }
 
 @theme {
@@ -27,6 +85,8 @@
   --color-ink-muted: var(--ink-muted);
   --color-line: var(--line);
   --color-accent: var(--accent);
+  --color-accent-cyan: var(--accent-cyan);
+  --color-accent-yellow: var(--accent-yellow);
 }
 
 html {

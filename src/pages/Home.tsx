@@ -7,12 +7,12 @@ function Home() {
     <div className="flex flex-col items-start gap-8 mt-8">
       {SECTIONS.map(({ id, title, description }) => (
         <section key={id} id={id} className="flex flex-col items-start gap-1">
-          <h2 className="text-lg font-medium text-ink">{title}</h2>
+          <h2 className="section-title text-lg font-medium text-ink">{title}</h2>
           <p className="text-ink-muted">{description}</p>
         </section>
       ))}
       <section id={SECTION_ID.BLOG} className="flex flex-col items-start gap-2">
-        <h2 className="text-lg font-medium text-ink">{SECTION_TITLE.BLOG}</h2>
+        <h2 className="section-title text-lg font-medium text-ink">{SECTION_TITLE.BLOG}</h2>
         {POSTS.length === 0 ? (
           <p className="text-ink-muted">under construction</p>
         ) : (

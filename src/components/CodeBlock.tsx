@@ -11,7 +11,7 @@ function CodeBlock({ children, ...props }: React.ComponentPropsWithoutRef<"pre">
   return (
     <div className="not-prose my-4 overflow-hidden rounded-md border border-line">
       {language && (
-        <div className="border-b border-line bg-paper-subtle px-3 py-1 text-xs text-ink-muted">
+        <div className="lang-label border-b border-line bg-paper-subtle px-3 py-1 text-xs text-ink-muted">
           {language}
         </div>
       )}
