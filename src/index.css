@@ -69,6 +69,14 @@ html[data-theme="cyberpunk"] {
       stroke 250ms ease,
       box-shadow 250ms ease;
   }
+
+  /* Headings swap font-family between themes (Chakra Petch vs the default),
+     and fading their color while the glyph shapes pop instantly underneath
+     reads as broken rather than smooth — so headings switch instantly
+     instead of cross-fading like everything else. */
+  :is(h1, h2, h3, h4, h5, h6) {
+    transition: none;
+  }
 }
 
 /* Sharp-cut, heavy, italic-by-default display face for every heading in
